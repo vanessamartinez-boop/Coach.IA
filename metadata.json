@@ -1,0 +1,6 @@
+{
+  "name": "Interview Coach AI",
+  "description": "Prepare-se para entrevistas com simulações realistas feitas por um Recrutador Sênior e otimize suas respostas usando o Método STAR.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
