@@ -25,7 +25,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen bg-slate-950 text-slate-100 overflow-hidden font-sans">
+    <div className="flex h-screen bg-slate-50 text-slate-900 overflow-hidden font-sans">
       
       {/* Mobile Header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-6 z-40">
@@ -67,24 +67,45 @@ export default function App() {
       )}
 
       {/* Main Content Pane */}
-      <main className="flex-1 overflow-y-auto min-h-screen pt-20 lg:pt-8 px-6 lg:px-10 pb-12 w-full">
-        <div className="max-w-6xl mx-auto space-y-6">
-          {/* Active Tab View */}
-          {currentTab === "simulator" && (
-            <Simulator onSendToOptimizer={handleSendToOptimizer} />
-          )}
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        {/* Top Header - Desktop only */}
+        <header className="hidden lg:flex h-16 border-b border-slate-200 bg-white items-center justify-between px-8 shrink-0 shadow-xs z-10">
+          <div className="flex items-center gap-4">
+            <span className="text-sm text-slate-500 font-medium">
+              Dashboard / {currentTab === "simulator" ? "Simulador de Entrevista" : currentTab === "optimizer" ? "Otimizador STAR" : "Guia de Preparação"}
+            </span>
+          </div>
+          <div className="flex items-center gap-4 text-sm">
+            <div className="text-right">
+              <p className="font-semibold text-slate-800">Candidato de Sucesso</p>
+              <p className="text-xs text-slate-500">Premium Member</p>
+            </div>
+            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold font-display">
+              CS
+            </div>
+          </div>
+        </header>
 
-          {currentTab === "optimizer" && (
-            <Optimizer
-              initialQuestion={optimizerQuestion}
-              initialDraft={optimizerDraft}
-              clearPrefills={clearOptimizerPrefills}
-            />
-          )}
+        {/* Main Content Area */}
+        <main className="flex-1 overflow-y-auto pt-20 lg:pt-8 px-6 lg:px-10 pb-12 w-full">
+          <div className="max-w-6xl mx-auto space-y-6">
+            {/* Active Tab View */}
+            {currentTab === "simulator" && (
+              <Simulator onSendToOptimizer={handleSendToOptimizer} />
+            )}
 
-          {currentTab === "guide" && <Guide />}
-        </div>
-      </main>
+            {currentTab === "optimizer" && (
+              <Optimizer
+                initialQuestion={optimizerQuestion}
+                initialDraft={optimizerDraft}
+                clearPrefills={clearOptimizerPrefills}
+              />
+            )}
+
+            {currentTab === "guide" && <Guide />}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

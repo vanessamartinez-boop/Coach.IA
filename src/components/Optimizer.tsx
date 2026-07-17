@@ -103,11 +103,11 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h2 className="text-2xl font-display font-bold text-slate-100 flex items-center gap-2">
-          <Sparkles className="w-6 h-6 text-indigo-400" />
+        <h2 className="text-2xl font-display font-bold text-slate-800 flex items-center gap-2">
+          <Sparkles className="w-6 h-6 text-indigo-600" />
           Otimizador de Respostas (Método STAR)
         </h2>
-        <p className="text-sm text-slate-400 mt-1 font-light">
+        <p className="text-sm text-slate-500 mt-1 font-light">
           Insira sua história profissional bagunçada ou rascunho de resposta e assista à IA estruturar tudo sob a técnica STAR (Situação, Tarefa, Ação e Resultado).
         </p>
       </div>
@@ -115,15 +115,15 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Form / STAR Education */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
-            <h3 className="text-base font-semibold text-slate-100 mb-4 font-display flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-indigo-400" />
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs">
+            <h3 className="text-base font-semibold text-slate-800 mb-4 font-display flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-indigo-600" />
               Lapidador de Relatos
             </h3>
 
             <form onSubmit={handleOptimize} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
                   Pergunta da Entrevista (Opcional)
                 </label>
                 <input
@@ -132,14 +132,14 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   disabled={loading}
-                  className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none text-sm text-slate-200 transition-all font-light"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:bg-white outline-none text-sm text-slate-800 transition-all font-light"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2 flex justify-between">
-                  <span>Seu Rascunho / História "Bagunçada" *</span>
-                  <span className="text-slate-500 lowercase font-normal">Pode escrever à vontade</span>
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex justify-between">
+                  <span>Seu Rascunho / História &quot;Bagunçada&quot; *</span>
+                  <span className="text-slate-400 lowercase font-normal">Pode escrever à vontade</span>
                 </label>
                 <textarea
                   placeholder="Ex: A gente tinha um bug muito chato em produção que estava quebrando o checkout. Eu peguei os logs da AWS, vi que tinha um token que expirou, reconfigurei, e resolveu tudo. O chefe me elogiou bastante..."
@@ -147,13 +147,13 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
                   onChange={(e) => setDraft(e.target.value)}
                   disabled={loading}
                   rows={6}
-                  className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none text-sm text-slate-200 transition-all font-light resize-none"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:bg-white outline-none text-sm text-slate-800 transition-all font-light resize-none"
                   required
                 />
               </div>
 
               {error && (
-                <div className="p-3 bg-red-950/40 border border-red-500/20 text-red-400 rounded-xl text-xs flex gap-2 items-start leading-relaxed">
+                <div className="p-3 bg-red-50 border border-red-100 text-red-700 rounded-xl text-xs flex gap-2 items-start leading-relaxed">
                   <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold">Erro:</span> {error}
@@ -164,7 +164,7 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
               <button
                 type="submit"
                 disabled={loading || !draft.trim()}
-                className="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 disabled:from-slate-800 disabled:to-slate-800 text-white font-medium rounded-xl shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
+                className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-200 disabled:text-slate-400 text-white font-semibold rounded-xl shadow-md shadow-indigo-100 hover:shadow-indigo-200 hover:shadow-lg transition-all text-sm flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <>
@@ -188,38 +188,38 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
           />
 
           {/* Educational Cheat Sheet */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
-            <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-4 flex items-center gap-1.5">
-              <Info className="w-4 h-4 text-indigo-400" />
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs">
+            <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-1.5">
+              <Info className="w-4 h-4 text-indigo-600" />
               Sua Cola para o Sucesso: STAR
             </h4>
             <div className="space-y-3">
               <div className="flex gap-2.5 items-start">
-                <div className="w-5 h-5 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5">S</div>
+                <div className="w-5 h-5 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5 border border-blue-100">S</div>
                 <div>
-                  <div className="text-xs font-semibold text-slate-200">Situação</div>
-                  <div className="text-[11px] text-slate-400 font-light mt-0.5">Explique o cenário desafiador de forma curta. Qual era o problema?</div>
+                  <div className="text-xs font-bold text-slate-800">Situação</div>
+                  <div className="text-[11px] text-slate-500 font-light mt-0.5">Explique o cenário desafiador de forma curta. Qual era o problema?</div>
                 </div>
               </div>
               <div className="flex gap-2.5 items-start">
-                <div className="w-5 h-5 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5">T</div>
+                <div className="w-5 h-5 rounded-full bg-indigo-50 text-indigo-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5 border border-indigo-100">T</div>
                 <div>
-                  <div className="text-xs font-semibold text-slate-200">Tarefa</div>
-                  <div className="text-[11px] text-slate-400 font-light mt-0.5">O que cabia a você resolver? Qual era a sua meta pessoal?</div>
+                  <div className="text-xs font-bold text-slate-800">Tarefa</div>
+                  <div className="text-[11px] text-slate-500 font-light mt-0.5">O que cabia a você resolver? Qual era a sua meta pessoal?</div>
                 </div>
               </div>
               <div className="flex gap-2.5 items-start">
-                <div className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5">A</div>
+                <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5 border border-emerald-100">A</div>
                 <div>
-                  <div className="text-xs font-semibold text-slate-200">Ação</div>
-                  <div className="text-[11px] text-slate-400 font-light mt-0.5">Diga exatamente quais ações estratégicas você tomou. Foque no SEU protagonismo.</div>
+                  <div className="text-xs font-bold text-slate-800">Ação</div>
+                  <div className="text-[11px] text-slate-500 font-light mt-0.5">Diga exatamente quais ações estratégicas você tomou. Foque no SEU protagonismo.</div>
                 </div>
               </div>
               <div className="flex gap-2.5 items-start">
-                <div className="w-5 h-5 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5">R</div>
+                <div className="w-5 h-5 rounded-full bg-amber-50 text-amber-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0 mt-0.5 border border-amber-100">R</div>
                 <div>
-                  <div className="text-xs font-semibold text-slate-200">Resultado</div>
-                  <div className="text-[11px] text-slate-400 font-light mt-0.5">Mostre o valor final gerado com métricas, eficiência ou feedbacks tangíveis.</div>
+                  <div className="text-xs font-bold text-slate-800">Resultado</div>
+                  <div className="text-[11px] text-slate-500 font-light mt-0.5">Mostre o valor final gerado com métricas, eficiência ou feedbacks tangíveis.</div>
                 </div>
               </div>
             </div>
@@ -229,18 +229,18 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
         {/* Right Column: Optimized Results Display */}
         <div className="lg:col-span-7 space-y-6">
           {loading && (
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-12 text-center shadow-xl flex flex-col items-center justify-center space-y-4">
+            <div className="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm flex flex-col items-center justify-center space-y-4">
               <div className="relative">
-                <div className="w-16 h-16 rounded-full border-4 border-slate-800 border-t-indigo-500 animate-spin"></div>
+                <div className="w-16 h-16 rounded-full border-4 border-slate-100 border-t-indigo-600 animate-spin"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-blue-400 animate-pulse" />
+                  <Sparkles className="w-6 h-6 text-indigo-600 animate-pulse" />
                 </div>
               </div>
               <div>
-                <h4 className="font-display font-semibold text-slate-200 text-lg">
+                <h4 className="font-display font-bold text-slate-800 text-lg">
                   Lapidando seu Discurso de Carreira
                 </h4>
-                <p className="text-sm text-slate-400 mt-1 max-w-sm mx-auto font-light leading-relaxed">
+                <p className="text-sm text-slate-500 mt-1 max-w-sm mx-auto font-light leading-relaxed">
                   "{loadingMessages[loadingMessageIndex]}"
                 </p>
               </div>
@@ -248,14 +248,14 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
           )}
 
           {!loading && !optimized && (
-            <div className="bg-slate-900 border border-slate-800 border-dashed rounded-2xl p-12 text-center shadow-xl">
-              <div className="mx-auto w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-slate-500" />
+            <div className="bg-white border border-slate-200 border-dashed rounded-2xl p-12 text-center shadow-sm">
+              <div className="mx-auto w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
+                <Sparkles className="w-6 h-6 text-slate-400" />
               </div>
-              <h4 className="font-display font-semibold text-slate-300 text-base">
+              <h4 className="font-display font-bold text-slate-700 text-base">
                 Aguardando História
               </h4>
-              <p className="text-xs text-slate-500 mt-2 max-w-xs mx-auto leading-relaxed font-light">
+              <p className="text-xs text-slate-400 mt-2 max-w-xs mx-auto leading-relaxed font-light">
                 Forneça o rascunho de resposta ou relato na coluna à esquerda para acionar a lapidação profissional de IA.
               </p>
             </div>
@@ -265,21 +265,21 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
             <div className="space-y-6">
               {/* Core STAR Blocks */}
               <div className="space-y-4">
-                <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                   Estrutura Pedagógica (As 4 Partes)
                 </h3>
 
                 {/* S - Situation */}
-                <div className="bg-slate-900 border border-slate-800/80 hover:border-blue-500/20 rounded-2xl p-5 transition-all shadow-md">
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-mono text-xs font-bold shrink-0">
+                <div className="bg-white border border-slate-200 hover:border-blue-300 rounded-2xl p-5 transition-all shadow-xs">
+                  <div className="flex gap-3.5">
+                    <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 border border-blue-100 flex items-center justify-center font-mono text-xs font-bold shrink-0">
                       S
                     </div>
                     <div>
-                      <h4 className="text-xs font-semibold text-blue-400 uppercase tracking-wider">
+                      <h4 className="text-xs font-bold text-blue-800 uppercase tracking-wider">
                         Situação (O Cenário)
                       </h4>
-                      <p className="text-xs text-slate-200 leading-relaxed font-light mt-1.5">
+                      <p className="text-xs text-slate-700 leading-relaxed font-light mt-1.5">
                         {optimized.situation}
                       </p>
                     </div>
@@ -287,16 +287,16 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
                 </div>
 
                 {/* T - Task */}
-                <div className="bg-slate-900 border border-slate-800/80 hover:border-indigo-500/20 rounded-2xl p-5 transition-all shadow-md">
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-mono text-xs font-bold shrink-0">
+                <div className="bg-white border border-slate-200 hover:border-indigo-300 rounded-2xl p-5 transition-all shadow-xs">
+                  <div className="flex gap-3.5">
+                    <div className="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-100 flex items-center justify-center font-mono text-xs font-bold shrink-0">
                       T
                     </div>
                     <div>
-                      <h4 className="text-xs font-semibold text-indigo-400 uppercase tracking-wider">
+                      <h4 className="text-xs font-bold text-indigo-800 uppercase tracking-wider">
                         Tarefa (A Missão)
                       </h4>
-                      <p className="text-xs text-slate-200 leading-relaxed font-light mt-1.5">
+                      <p className="text-xs text-slate-700 leading-relaxed font-light mt-1.5">
                         {optimized.task}
                       </p>
                     </div>
@@ -304,16 +304,16 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
                 </div>
 
                 {/* A - Action */}
-                <div className="bg-slate-900 border border-slate-800/80 hover:border-emerald-500/20 rounded-2xl p-5 transition-all shadow-md">
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-mono text-xs font-bold shrink-0">
+                <div className="bg-white border border-slate-200 hover:border-emerald-300 rounded-2xl p-5 transition-all shadow-xs">
+                  <div className="flex gap-3.5">
+                    <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center font-mono text-xs font-bold shrink-0">
                       A
                     </div>
                     <div>
-                      <h4 className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+                      <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider">
                         Ação (Seu Protagonismo)
                       </h4>
-                      <p className="text-xs text-slate-200 leading-relaxed font-light mt-1.5">
+                      <p className="text-xs text-slate-700 leading-relaxed font-light mt-1.5">
                         {optimized.action}
                       </p>
                     </div>
@@ -321,16 +321,16 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
                 </div>
 
                 {/* R - Result */}
-                <div className="bg-slate-900 border border-slate-800/80 hover:border-amber-500/20 rounded-2xl p-5 transition-all shadow-md">
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-mono text-xs font-bold shrink-0">
+                <div className="bg-white border border-slate-200 hover:border-amber-300 rounded-2xl p-5 transition-all shadow-xs">
+                  <div className="flex gap-3.5">
+                    <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 border border-amber-100 flex items-center justify-center font-mono text-xs font-bold shrink-0">
                       R
                     </div>
                     <div>
-                      <h4 className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
+                      <h4 className="text-xs font-bold text-amber-800 uppercase tracking-wider">
                         Resultado (Impacto Mensurável)
                       </h4>
-                      <p className="text-xs text-slate-200 leading-relaxed font-light mt-1.5">
+                      <p className="text-xs text-slate-700 leading-relaxed font-light mt-1.5">
                         {optimized.result}
                       </p>
                     </div>
@@ -339,22 +339,22 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
               </div>
 
               {/* Consolidated final narrative */}
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
-                <div className="p-5 border-b border-slate-800 bg-slate-950/40 flex justify-between items-center">
+              <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+                <div className="p-5 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
                   <div className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-indigo-400" />
-                    <h3 className="text-xs font-semibold text-slate-200 uppercase tracking-wider">
+                    <FileText className="w-4 h-4 text-indigo-600" />
+                    <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                       Discurso Final Consolidado
                     </h3>
                   </div>
                   <button
                     onClick={() => copyToClipboard(optimized.fullOptimized)}
-                    className="py-1.5 px-3 hover:bg-slate-800 text-slate-300 hover:text-white rounded-lg transition-all text-xs flex items-center gap-1.5 border border-slate-800 hover:border-slate-700 cursor-pointer"
+                    className="py-1.5 px-3 hover:bg-slate-50 text-slate-600 hover:text-slate-800 rounded-lg transition-all text-xs flex items-center gap-1.5 border border-slate-200 cursor-pointer shadow-xs"
                   >
                     {copiedText ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-emerald-400 font-medium">Copiado!</span>
+                        <Check className="w-3.5 h-3.5 text-emerald-600" />
+                        <span className="text-emerald-600 font-medium">Copiado!</span>
                       </>
                     ) : (
                       <>
@@ -364,24 +364,24 @@ export default function Optimizer({ initialQuestion, initialDraft, clearPrefills
                     )}
                   </button>
                 </div>
-                <div className="p-6 bg-slate-950/20">
-                  <p className="text-sm text-slate-200 leading-relaxed font-light whitespace-pre-wrap">
+                <div className="p-6 bg-white">
+                  <p className="text-sm text-slate-800 leading-relaxed font-light whitespace-pre-wrap">
                     {optimized.fullOptimized}
                   </p>
                 </div>
               </div>
 
               {/* Coaching Tip card */}
-              <div className="bg-indigo-600/10 border border-indigo-500/20 rounded-2xl p-5">
-                <div className="flex gap-3">
-                  <div className="p-2 bg-indigo-600/20 rounded-xl shrink-0 h-fit">
-                    <MessageSquare className="w-5 h-5 text-indigo-400" />
+              <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5 shadow-xs">
+                <div className="flex gap-4">
+                  <div className="p-2.5 bg-indigo-100 rounded-xl shrink-0 h-fit">
+                    <MessageSquare className="w-5 h-5 text-indigo-700" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-semibold text-indigo-300 uppercase tracking-wider font-display">
+                    <h4 className="text-sm font-bold text-indigo-900 font-display">
                       Postura e Entrega (Dica do Coach)
                     </h4>
-                    <p className="text-xs text-slate-300 leading-relaxed font-light mt-1.5">
+                    <p className="text-xs text-slate-700 leading-relaxed font-light mt-1.5">
                       {optimized.coachingTip}
                     </p>
                   </div>

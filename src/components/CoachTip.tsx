@@ -10,21 +10,27 @@ interface CoachTipProps {
 export default function CoachTip({ title = "Dica do Coach", content, type = "tip" }: CoachTipProps) {
   const styles = {
     tip: {
-      bg: "bg-blue-600/5",
-      border: "border-blue-500/20",
-      text: "text-blue-400",
+      bg: "bg-blue-50",
+      border: "border-blue-100",
+      titleText: "text-blue-900",
+      bodyText: "text-blue-800",
+      iconColor: "text-blue-600",
       icon: Sparkles,
     },
     warning: {
-      bg: "bg-amber-600/5",
-      border: "border-amber-500/20",
-      text: "text-amber-400",
+      bg: "bg-amber-50",
+      border: "border-amber-100",
+      titleText: "text-amber-900",
+      bodyText: "text-amber-800",
+      iconColor: "text-amber-700",
       icon: AlertCircle,
     },
     info: {
-      bg: "bg-slate-800/40",
-      border: "border-slate-700/60",
-      text: "text-slate-300",
+      bg: "bg-slate-100",
+      border: "border-slate-200",
+      titleText: "text-slate-900",
+      bodyText: "text-slate-600",
+      iconColor: "text-slate-500",
       icon: HelpCircle,
     },
   };
@@ -33,13 +39,13 @@ export default function CoachTip({ title = "Dica do Coach", content, type = "tip
   const Icon = activeStyle.icon;
 
   return (
-    <div className={`p-4 rounded-xl border ${activeStyle.bg} ${activeStyle.border} flex gap-3 text-left`}>
-      <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${activeStyle.text}`} />
+    <div className={`p-5 rounded-2xl border ${activeStyle.bg} ${activeStyle.border} flex gap-4 text-left shadow-xs`}>
+      <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${activeStyle.iconColor}`} />
       <div>
-        <h4 className={`text-xs font-semibold ${activeStyle.text} uppercase tracking-wider mb-1 font-display`}>
+        <h4 className={`text-sm font-bold ${activeStyle.titleText} mb-1 font-display`}>
           {title}
         </h4>
-        <p className="text-xs text-slate-300 leading-relaxed font-light">
+        <p className={`text-xs ${activeStyle.bodyText} leading-relaxed font-light`}>
           {content}
         </p>
       </div>
